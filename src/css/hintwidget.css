@@ -1,0 +1,56 @@
+div.hint-hidden {
+    display: none;
+}
+
+i.hint-hint {
+    margin-left: 8px;
+    font-size: 1.2em;
+    color: blue;
+    cursor: pointer;
+}
+
+.form-group i.hint-hint {
+    font-size: 1.5em;
+}
+
+.hint-content {
+    font-size: 0.9em;
+
+}
+.hint-content h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+
+}
+.hint-content h2 {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.hint-content h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+.hint-content dl dd {
+    margin-left: 16px;
+}
+
+.input-group-addon.transparent {
+    border: none;
+    background-color: transparent;
+}
+
+.hint-container .hint-block {
+    display: none;
+    font-size: 0.9em;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    font: normal normal normal 14px/1 FontAwesome;
+    border: none;
+}
+.ui-dialog .ui-dialog-titlebar-close:before {
+    content: "\f00d";
+
+}
