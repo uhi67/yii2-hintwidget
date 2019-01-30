@@ -44,12 +44,20 @@ use yii\base\Widget;
  *  </div>
  * ```
  *
+ * ## Attributes
+ *
+ * - title: caption of title title bar in the hint dialog
+ * - width: width of the hint dialog contents
+ * - contents: contents of the dialog if using ::widget() method
+ * - buttonOptions: html attributes for hint button tag
+ *
  * @package uhi67\hintwidget
  */
 class HintWidget extends Widget {
 	public $title='';
 	public $width=400;
 	public $content;
+	public $buttonOptions;
 
 	public function init() {
 		parent::init();
@@ -59,7 +67,7 @@ class HintWidget extends Widget {
 	public function run() {
 		HintWidgetAsset::register($this->getView());
 		$content = $this->content ? $this->content : ob_get_clean();
-		$content = Html::tag('i', '', ['class'=>'fa fa-question-circle hint-hint', 'data-id'=>$this->id]) .
+		$content = Html::tag('i', '', array_merge(['class'=>'fa fa-question-circle hint-hint', 'data-id'=>$this->id], $this->buttonOptions)) .
 			Html::tag('div', $content, [
 				'id'=>$this->id,
 				'class'=>'hint-content',
