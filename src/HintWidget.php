@@ -57,6 +57,7 @@ class HintWidget extends Widget {
 	public $title='';
 	public $width=400;
 	public $content;
+	/** @var array $buttonOptions */
 	public $buttonOptions;
 
 	public function init() {
@@ -67,7 +68,10 @@ class HintWidget extends Widget {
 	public function run() {
 		HintWidgetAsset::register($this->getView());
 		$content = $this->content ? $this->content : ob_get_clean();
-		$content = Html::tag('i', '', array_merge(['class'=>'fa fa-question-circle hint-hint', 'data-id'=>$this->id], $this->buttonOptions)) .
+		$content = Html::tag('i', '', array_merge(
+			['class'=>'fa fa-question-circle hint-hint', 'data-id'=>$this->id],
+			$this->buttonOptions ? $this->buttonOptions : []
+		)) .
 			Html::tag('div', $content, [
 				'id'=>$this->id,
 				'class'=>'hint-content',
